@@ -103,3 +103,12 @@ $('#returns').onclick=()=>info('Обмен и возврат','Условия о
 $('#contacts').onclick=()=>info('Контакты','+375-336-644-600 · marketing@kovalenko.by · СООО «Фабрика обуви Коваленко», г. Могилёв, ул. Франко 10.');
 document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}}));
 render();renderCart();
+
+// Open a specific model from links shared by the virtual consultant.
+function openLinkedProduct() {
+  const code = new URLSearchParams(window.location.search).get('product');
+  if (!code) return;
+  const product = products.find(p => sku(p) === code.toUpperCase());
+  if (product) openProduct(product.id);
+}
+openLinkedProduct();
