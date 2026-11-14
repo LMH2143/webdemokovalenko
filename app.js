@@ -71,7 +71,7 @@ function renderOrder(){
 let toastTimer;
 function toast(t){$('#toast').textContent=t;$('#toast').style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').style.display='none',2500);}
 document.addEventListener('click',e=>{
-  const c=e.target.closest('[data-category]');if(c){category=c.dataset.category;render();window.scrollTo({top:0,behavior:'smooth'});}
+  const c=e.target.closest('[data-category]');if(c){category=c.dataset.category;render();}
   const p=e.target.closest('[data-product]');if(p){if($('#product-dialog').open)$('#product-dialog').close();openProduct(Number(p.dataset.product));}
   const a=e.target.closest('[data-angle]');if(a)setAngle(Number(a.dataset.angle));
   const step=e.target.closest('[data-angle-step]');if(step)setAngle(angle+Number(step.dataset.angleStep));
